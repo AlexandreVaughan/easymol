@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root SYSTEM "newdtd.dtd">
+
+<root name="ethanol">
+
+  <compound name="CH3" symbol="CH3" id="1">
+  	<compound symbol="C" id="2" />
+  	<compound symbol="H" id="3" />
+  	<compound symbol="H" id="4" />
+  	<compound symbol="H" id="5" />
+  	<bond from="3" to="2" />
+  	<bond from="4" to="2" />
+  	<bond from="5" to="2" />
+  </compound>
+	<compound name="CH2" symbol="CH2" id="6">
+    	<compound symbol="C" id="7" />
+	  	<compound symbol="H" id="8" />
+  		<compound symbol="H" id="9" />
+	  	<bond from="8" to="7" />
+  		<bond from="9" to="7" />
+	</compound>
+    <compound name="OH" symbol="OH" id="10">
+    	<compound symbol="O" id="11" />
+    	<compound symbol="H" id="12" />
+    	<bond from="12" to="11" />    	
+	</compound>
+	<bond from="1" to="6" />
+	<bond from="6" to="10" />
+ 
+  
+</root>
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root SYSTEM "newdtd.dtd">
+<root name="water" symbol="H20">
+	<compound name="oxygen" symbol="O" id="2" />
+	<compound name="oxygen" symbol="O" id="3" />
+	<compound name="hydrogen" symbol="H" id="5" />		
+	<compound name="hydrogen" symbol="H" id="4" />
+	<compound name="carbon" symbol="C" id="6" />
+	<compound name="C2H" id="7" >
+			<compound name="carbon" symbol="C" id="8" />
+			<compound name="hydrogen" symbol="H" id="9" />		
+			<compound name="hydrogen" symbol="H" id="10" />
+			<bond from="8" to="9" />
+			<bond from="8" to="10" />
+	</compound>
+	<bond from="6" to="2" />
+	<bond from="3" to="5" />
+	<bond from="3" to="4" />
+</root>

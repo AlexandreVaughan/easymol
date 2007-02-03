@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE compound SYSTEM "molecule.dtd">
+
+<compound>
+  <molecule name="Carbon Dioxyde">
+    <atom name="C" bondid="c0" />
+    <atom name="O" bondid="o0" />
+    <atom name="O" bondid="o-1" />
+    <bond from="c0" to="o0" valency="2" />
+    <bond from="c0" to="o-1" valency="2" />
+  </molecule>
+</compound>
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE compound SYSTEM "molecule.dtd">
+
+<compound>
+  <molecule name="">
+    <atom name="O" bondid="o0" />
+    <atom name="H" bondid="h0" />
+    <atom name="H" bondid="h-1" />
+    <bond from="o0" to="h0" valency="1" />
+    <bond from="o0" to="h-1" valency="1" />
+  </molecule>
+</compound>
+

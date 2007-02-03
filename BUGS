@@ -1,0 +1,4 @@
+(2D GUI) When an atom is deleted on the graph, the links that leadto it are also deleted
+      but they are still painted on the graph. they should be removed
+(3D GUI) the cycles in the molecule should be detected before running the VSEPR method to
+      avoid the call stack overflow

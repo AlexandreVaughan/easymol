@@ -1,0 +1,12 @@
+<!ELEMENT root (compound|bond)*>
+<!ATTLIST root name CDATA #REQUIRED
+				   symbol CDATA #IMPLIED>
+<!ELEMENT compound ((compound|bond|EMPTY)*)>
+<!ATTLIST compound name CDATA #IMPLIED
+				   symbol CDATA #REQUIRED
+				   id NMTOKENS #REQUIRED
+				   properties CDATA #IMPLIED>
+<!ELEMENT bond EMPTY>
+<!ATTLIST bond from NMTOKENS #REQUIRED
+			   to NMTOKENS #REQUIRED
+			   valency NMTOKENS #IMPLIED>

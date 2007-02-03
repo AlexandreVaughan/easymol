@@ -1,0 +1,72 @@
+*********************
+Release 0.8b (Merlin)
+*********************
+
+GENERAL
+- Support for JDK 5.0 and eclipse 3.1
+- Heavy refactoring to prepare the support of PDB files
+  --> no more algorithm package
+  --> comp2d and comp3d packages
+  --> made easymol work on abstract types (removed instanceof calls)
+  
+CORE
+- Added the CoreUtility class to contain helper functions for the core
+
+GUI :
+- Better support for save /load functions as well as better molecule naming
+- Use of the plastic theme for the application
+
+BUG FIXES
+22 August 2005 : (CORE) fixed a bug that made an atom satisfied valency decrement when 
+                 a bonding operation failed
+
+
+**********************
+Release 0.5b (Gandalf)
+**********************
+
+GENERAL
+- Refactored program structure
+  --> fr.emn.easymol.algorithms      : contains molecule analysis and processing algorithm
+  --> fr.emn.easymol.algorithms.util : contains helper classes for the algorithms
+  --> fr.emn.easymol.core            : contains the data model
+  --> fr.emn.easymol.main            : contains top level windows for the program
+  --> fr.emn.easymol.test            : contains JUnit test suite
+  --> fr.emn.easymol.ui.actions      : contains action classes for the GUI
+  --> fr.emn.easymol.ui.component    : contains GUI components
+
+GUI :
+- Complete rewrite of the GUI
+- Used the jgraph component for the GUI (instead of owner drawn component)  
+
+DATA MODEL :
+- Rewrite of the molecule data model based on a composite pattern
+
+ALGORITHMS :
+- New 1D, 2D, 3D algorithms
+- Mapping for the old 3D algorithm between the old (version 0.3) and the new structure 
+  (wrapper/adapter pattern)
+  
+PERSISTANCE
+- Added XML Support
+  
+BUG FIXES:
+- Solved exception when rendering empty molecule
+
+**********************
+Release 0.3b (Saruman)
+**********************
+
+GUI:
+- Removed the constants about window sizes when the size is dynamically fixed (e.g. size of the screen)
+- Added a toolBar in the main window of EasyMol
+- Completed and ensured that all the javadoc has no typo (at last! It was so boring and terrible!)
+- Corrected a bug while removing an atom or a link (the molecule was set to modified even if the operation was not successful)
+- Redesigned allSaveCloseQuit() in LibGUI because of undesired side effects -> management of Z-order is now correct
+- Added filefiltering for XML files when loading and saving
+- Finally added the auto enabling/disabling of actions when no VisuWin is opened -> it allowed to clean code by removing all the stuff that
+	once did this kind of checking
+- Rechanged the load feature so that it uses the fields of the VisuWin if there is one. Otherwise, implementing pathnames
+	would have been a total waste of time as the window was closed hence the loss of the pathname...
+- Corrected a bug when the "close all" was looping infinitely when the user choosed "cancel"
+- Loading a molecule now closes the previous opened window

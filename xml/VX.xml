@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root SYSTEM "newdtd.dtd">
+
+<root name="Unknown 1">
+  <compound id="0" symbol="CHHHCHCHHHNCHCCHHHHHHCHHCHHSPOCCHHHHHCHH">
+    <compound symbol="C" id="1" />
+    <compound symbol="H" id="2" />
+    <compound symbol="H" id="3" />
+    <compound symbol="H" id="4" />
+    <compound symbol="C" id="5" />
+    <compound symbol="H" id="6" />
+    <compound symbol="C" id="7" />
+    <compound symbol="H" id="8" />
+    <compound symbol="H" id="9" />
+    <compound symbol="H" id="10" />
+    <compound symbol="N" id="11" />
+    <compound symbol="C" id="12" />
+    <compound symbol="H" id="13" />
+    <compound symbol="C" id="14" />
+    <compound symbol="C" id="15" />
+    <compound symbol="H" id="16" />
+    <compound symbol="H" id="17" />
+    <compound symbol="H" id="18" />
+    <compound symbol="H" id="19" />
+    <compound symbol="H" id="20" />
+    <compound symbol="H" id="21" />
+    <compound symbol="C" id="22" />
+    <compound symbol="H" id="23" />
+    <compound symbol="H" id="24" />
+    <compound symbol="C" id="25" />
+    <compound symbol="H" id="26" />
+    <compound symbol="H" id="27" />
+    <compound symbol="S" id="28" />
+    <compound symbol="P" id="29" />
+    <compound symbol="O" id="30" />
+    <compound symbol="C" id="31" />
+    <compound symbol="C" id="32" />
+    <compound symbol="H" id="33" />
+    <compound symbol="H" id="34" />
+    <compound symbol="H" id="35" />
+    <compound symbol="H" id="36" />
+    <compound symbol="H" id="37" />
+    <compound symbol="C" id="38" />
+    <compound symbol="H" id="39" />
+    <compound symbol="H" id="40" />
+    <bond from="1" to="2" valency="1" />
+    <bond from="1" to="3" valency="1" />
+    <bond from="1" to="4" valency="1" />
+    <bond from="1" to="5" valency="1" />
+    <bond from="5" to="6" valency="1" />
+    <bond from="5" to="7" valency="1" />
+    <bond from="7" to="8" valency="1" />
+    <bond from="7" to="9" valency="1" />
+    <bond from="7" to="10" valency="1" />
+    <bond from="5" to="11" valency="1" />
+    <bond from="11" to="12" valency="1" />
+    <bond from="12" to="13" valency="1" />
+    <bond from="15" to="12" valency="1" />
+    <bond from="12" to="14" valency="1" />
+    <bond from="15" to="16" valency="1" />
+    <bond from="15" to="17" valency="1" />
+    <bond from="15" to="18" valency="1" />
+    <bond from="14" to="19" valency="1" />
+    <bond from="14" to="20" valency="1" />
+    <bond from="14" to="21" valency="1" />
+    <bond from="11" to="22" valency="1" />
+    <bond from="22" to="23" valency="1" />
+    <bond from="22" to="24" valency="1" />
+    <bond from="22" to="25" valency="1" />
+    <bond from="25" to="26" valency="1" />
+    <bond from="25" to="27" valency="1" />
+    <bond from="25" to="28" valency="1" />
+    <bond from="28" to="29" valency="1" />
+    <bond from="30" to="31" valency="1" />
+    <bond from="29" to="30" valency="1" />
+    <bond from="31" to="32" valency="1" />
+    <bond from="32" to="33" valency="1" />
+    <bond from="32" to="34" valency="1" />
+    <bond from="32" to="35" valency="1" />
+    <bond from="31" to="36" valency="1" />
+    <bond from="31" to="37" valency="1" />
+    <bond from="38" to="29" valency="1" />
+    <bond from="38" to="39" valency="1" />
+    <bond from="38" to="40" valency="1" />
+  </compound>
+</root>
+

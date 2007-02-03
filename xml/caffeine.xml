@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root SYSTEM "newdtd.dtd">
+
+<root name="caffeine">
+  <compound id="0" symbol="CHHHNCOCCONCHHHCNNCHCHHH">
+    <compound symbol="C" id="1" />
+    <compound symbol="H" id="2" />
+    <compound symbol="H" id="3" />
+    <compound symbol="H" id="4" />
+    <compound symbol="N" id="5" />
+    <compound symbol="C" id="6" />
+    <compound symbol="O" id="7" />
+    <compound symbol="C" id="8" />
+    <compound symbol="C" id="9" />
+    <compound symbol="O" id="10" />
+    <compound symbol="N" id="11" />
+    <compound symbol="C" id="12" />
+    <compound symbol="H" id="13" />
+    <compound symbol="H" id="14" />
+    <compound symbol="H" id="15" />
+    <compound symbol="C" id="16" />
+    <compound symbol="N" id="17" />
+    <compound symbol="N" id="18" />
+    <compound symbol="C" id="19" />
+    <compound symbol="H" id="20" />
+    <compound symbol="C" id="21" />
+    <compound symbol="H" id="22" />
+    <compound symbol="H" id="23" />
+    <compound symbol="H" id="24" />
+    <bond from="1" to="2" valency="1" />
+    <bond from="1" to="3" valency="1" />
+    <bond from="1" to="4" valency="1" />
+    <bond from="1" to="5" valency="1" />
+    <bond from="5" to="6" valency="1" />
+    <bond from="6" to="7" valency="2" />
+    <bond from="6" to="8" valency="1" />
+    <bond from="5" to="9" valency="1" />
+    <bond from="10" to="9" valency="2" />
+    <bond from="9" to="11" valency="1" />
+    <bond from="11" to="12" valency="1" />
+    <bond from="12" to="13" valency="1" />
+    <bond from="12" to="14" valency="1" />
+    <bond from="12" to="15" valency="1" />
+    <bond from="11" to="16" valency="1" />
+    <bond from="8" to="16" valency="2" />
+    <bond from="16" to="17" valency="1" />
+    <bond from="8" to="18" valency="1" />
+    <bond from="18" to="19" valency="1" />
+    <bond from="17" to="19" valency="2" />
+    <bond from="19" to="20" valency="1" />
+    <bond from="19" to="21" valency="1" />
+    <bond from="21" to="22" valency="1" />
+    <bond from="21" to="23" valency="1" />
+    <bond from="21" to="24" valency="1" />
+  </compound>
+</root>
+

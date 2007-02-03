@@ -1,0 +1,13 @@
+<!ELEMENT compound (molecule+)>
+<!ELEMENT molecule (atom|bond)*>
+<!ATTLIST molecule name CDATA #REQUIRED
+				   formula CDATA #IMPLIED>
+				  
+<!ELEMENT atom (atom|bond|EMPTY)*>
+<!ATTLIST atom name CDATA #REQUIRED
+			   bondid ID #REQUIRED>
+
+<!ELEMENT bond EMPTY>
+<!ATTLIST bond from IDREF #REQUIRED
+	       	   to IDREF #REQUIRED
+	       	   valency NMTOKENS #REQUIRED>

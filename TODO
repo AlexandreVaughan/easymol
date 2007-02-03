@@ -1,0 +1,41 @@
+TODO List for EasyMol O.8b (Merlin)
+***********************************
+
+GENERAL:
+- Make easymol work on abstract types as much as possible
+- Document
+- Update project files (run.sh, INSTALL ...)
+- make sure compile and run scripts work on linux AND windows 
+- Reduce TODO list (TODOs in the code)
+
+MAIN 
+- Refactor EasyMolMainWindow to make heavier use of MoleculeBuilder
+
+
+2D GUI:
+- Support for more atom types (sulfur ...)
+- Support for more bond types (Hydrogen bond, disulfur bond ...)
+- Interface to group/ungroup atoms to create subcompounds
+- Link atom using jgraph ports instead of middle button click
+- Cut/Copy/Paste options
+- Undo/Redo options (low priority)
+
+3D GUI:
+- Support for PDB viewing using PDB coordinates 
+
+CORE :
+- Document the new core (update documentation on web server)
+- Support for more atom types (sulfur ...)
+- Support for more bond types (Hydrogen bond, disulfur bond ...)
+- Support for more molecule properties (energy, etc.)
+- Cut/Copy/Paste functionality
+- Undo/Redo support (low priority)
+
+PERSISTENCE :
+- PDB file loading
+- Database Saving/Loading (low priority)
+- Refactor DTD to work on abstract types
+
+TEST :
+- Add more tests for the core
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE compound SYSTEM "molecule.dtd">
+
+<compound>
+  <molecule name="butan">
+    <atom name="C" bondid="c3" />
+    <atom name="C" bondid="c2" />
+    <atom name="C" bondid="c1" />
+    <atom name="C" bondid="c0" />
+    <atom name="H" bondid="h5" />
+    <atom name="H" bondid="h4" />
+    <atom name="H" bondid="h3" />
+    <atom name="H" bondid="h2" />
+    <atom name="H" bondid="h1" />
+    <atom name="H" bondid="h0" />
+    <atom name="H" bondid="h-1" />
+    <atom name="H" bondid="h-2" />
+    <atom name="H" bondid="h-3" />
+    <atom name="H" bondid="h-4" />
+    <bond from="c3" to="c2" valency="1" />
+    <bond from="c2" to="c1" valency="1" />
+    <bond from="c1" to="c0" valency="1" />
+    <bond from="c0" to="h5" valency="1" />
+    <bond from="c0" to="h4" valency="1" />
+    <bond from="c0" to="h3" valency="1" />
+    <bond from="c1" to="h2" valency="1" />
+    <bond from="c1" to="h1" valency="1" />
+    <bond from="c2" to="h0" valency="1" />
+    <bond from="c2" to="h-1" valency="1" />
+    <bond from="c3" to="h-2" valency="1" />
+    <bond from="c3" to="h-3" valency="1" />
+    <bond from="c3" to="h-4" valency="1" />
+  </molecule>
+</compound>
+

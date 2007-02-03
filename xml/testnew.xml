@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root SYSTEM "xml/newdtd.dtd">
+
+<root name="Unknown 1">
+  <compound id="0" symbol="SPN">
+    <compound symbol="S" id="1" />
+    <compound symbol="P" id="2" />
+    <compound symbol="N" id="3" />
+    <bond from="1" to="2" valency="1" />
+    <bond from="2" to="3" valency="1" />
+  </compound>
+</root>
+

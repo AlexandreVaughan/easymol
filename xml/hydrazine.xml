@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE compound SYSTEM "molecule.dtd">
+
+<compound>
+  <molecule name="Hydrazine">
+    
+    
+    
+    <bond from="n1" to="n0" valency="1" />
+    <bond from="n0" to="h1" valency="1" />
+    <bond from="n0" to="h0" valency="1" />
+    <bond from="n1" to="h-1" valency="1" />
+    <bond from="n1" to="h-2" valency="1" />
+  </molecule>
+  <molecule name="H2">
+  <atom name="N" bondid="n1" />
+    <atom name="N" bondid="n0" />
+  <atom name="H" bondid="h1" />
+    <atom name="H" bondid="h0" />
+  </molecule>
+  <molecule name="H3">
+  <atom name="H" bondid="h-1" />
+    <atom name="H" bondid="h-2" />
+  </molecule>
+  
+</compound>
+
