@@ -23,7 +23,8 @@
    package fr.emn.easymol.gui;
 
 // 3D imports   
-   import java.awt.BorderLayout;
+import java.awt.BorderLayout;
+import java.awt.GraphicsConfiguration;
 
 import javax.media.j3d.AmbientLight;
 import javax.media.j3d.BoundingSphere;
@@ -64,7 +65,8 @@ import fr.emn.easymol.geometry.Molecule3D;
       // Window creation
          //GraphicsConfiguration def = (GraphicsEnvironment.getLocalGraphicsEnvironment()).getDefaultScreenDevice().getDefaultConfiguration();
          getContentPane().setLayout(new BorderLayout());
-         canvas3D = new Canvas3D(null); //def
+         GraphicsConfiguration gc = SimpleUniverse.getPreferredConfiguration();
+         canvas3D = new Canvas3D(gc); //def
          getContentPane().add("Center", canvas3D);
          setTitle(GUIConstants.TITLE_NAVIGATION);
          setSize(GUIConstants.WIDTH_NAVIGATION, GUIConstants.HEIGHT_NAVIGATION);
