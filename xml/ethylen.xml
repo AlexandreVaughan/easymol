@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<molecule name="Ethylen">
+  <moleculenode link="0" rootatom="C">
+    <atom link="1" name="H"/>
+    <atom link="1" name="H"/>
+    <moleculenode link="2" rootatom="C">
+      <atom link="1" name="H"/>
+      <atom link="1" name="H"/>
+    </moleculenode>
+  </moleculenode>
+</molecule>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<molecule name="Ethanol">
+  <moleculenode link="0" rootatom="C">
+    <moleculenode link="1" rootatom="O">
+      <atom link="1" name="H"/>
+    </moleculenode>
+    <moleculenode link="1" rootatom="C">
+      <atom link="1" name="H"/>
+      <atom link="1" name="H"/>
+      <atom link="1" name="H"/>
+    </moleculenode>
+    <atom link="1" name="H"/>
+    <atom link="1" name="H"/>
+  </moleculenode>
+</molecule>

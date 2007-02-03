@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<molecule name="Carbon Dioxyde">
+  <moleculenode link="0" rootatom="C">
+    <atom link="2" name="O"/>
+    <atom link="2" name="O"/>
+  </moleculenode>
+</molecule>

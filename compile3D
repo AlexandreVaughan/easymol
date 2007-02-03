@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# This scripts is a simple utility to compile
+# Easymol packages. The argument of  this
+# scrip must be a valid EasyMol package
+ 
+if [ $# = 0 ] 
+then
+        echo "Error : there must be a parameter"
+        exit 1
+else
+        echo "Compiling $1 package..."
+        javac -classpath ./:xerces.jar:xml.jar fr/emn/easymol/$1/*.java
+        echo "OK."
+        exit 0
+fi

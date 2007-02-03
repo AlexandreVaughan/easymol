@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<molecule name="Test">
+  <moleculenode link="0" rootatom="C">
+    <atom link="1" name="H"/>
+    <moleculenode link="1" rootatom="N">
+      <atom link="1" name="H"/>
+      <atom link="1" name="H"/>
+    </moleculenode>
+    <moleculenode link="1" rootatom="C">
+      <atom link="2" name="O"/>
+      <moleculenode link="1" rootatom="O">
+        <atom link="1" name="H"/>
+      </moleculenode>
+    </moleculenode>
+  </moleculenode>
+</molecule>

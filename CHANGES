@@ -1,0 +1,17 @@
+GUI:
+27/06/02
+- Removed the constants about window sizes when the size is dynamically fixed (e.g. size of the screen)
+- Added a toolBar in the main window of EasyMol
+- Completed and ensured that all the javadoc has no typo (at last! It was so boring and terrible!)
+- Corrected a bug while removing an atom or a link (the molecule was set to modified even if the operation was not successful)
+- Redesigned allSaveCloseQuit() in LibGUI because of undesired side effects -> management of Z-order is now correct
+- Added filefiltering for XML files when loading and saving
+- Finally added the auto enabling/disabling of actions when no VisuWin is opened -> it allowed to clean code by removing all the stuff that
+	once did this kind of checking
+- Rechanged the load feature so that it uses the fields of the VisuWin if there is one. Otherwise, implementing pathnames
+	would have been a total waste of time as the window was closed hence the loss of the pathname...
+- Corrected a bug when the "close all" was looping infinitely when the user choosed "cancel"
+
+
+26/06/02
+- Loading a molecule now closes the previous opened window

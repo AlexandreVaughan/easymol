@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# This script builds the EasyMol API
+# documentation, useful for developers
+
+echo "Creating documentation for easymol..."
+javadoc -classpath ./:./xerces.jar:./xml.jar: -d doc fr.emn.easymol.core fr.emn.easymol.geometry fr.emn.easymol.gui fr.emn.easymol.xml fr.emn.easymol.main
+echo "OK."
+

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# This script is to test runnable classes
+# from EasyMol. The class must be referenced as
+# package.Class where package is a valid EasyMol 
+# package and class a valid EasyMol class.
+
+if [ $# = 0 ] 
+then
+        echo "Usage : run <class> [parameter]"
+        exit 1
+else
+        echo "Running $1 with parameter $2"
+        java -cp ./:xerces.jar:xml.jar fr.emn.easymol.$1 $2
+        exit 0
+fi
+

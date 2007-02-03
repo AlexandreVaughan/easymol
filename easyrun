@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# This script runs the batch mode version of EasyMol 
+
+echo "Running EasyRun. Please wait ..."
+java -cp ./xml.jar:./xerces.jar:./easymol.jar fr.emn.easymol.main.EasyRun $1

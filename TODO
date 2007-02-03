@@ -1,0 +1,6 @@
+GUI:
+- Scroll Pane to add in the LewisView
+- Add list of opened windows
+- Correct behavior of consoleWindow when messages written (lift)
+- Cut, Copy and Paste actions to add
+- Undo Manager to implement

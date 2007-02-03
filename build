@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# This script builds the EasyMol program. It :
+# 1. Compiles all the packages
+# 2. Creates the documentation
+# 3. Creates EasyMol jar file
+
+echo "Building EasyMol..."
+./compile3D core
+./compile3D geometry
+./compile3D xml
+./compile3D gui
+./compile3D main
+./compile3D test
+./mkdoc
+./mkjar
+echo "EasyMol is now built." 
+echo "Type easymol to run the program."

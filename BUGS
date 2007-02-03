@@ -1,0 +1,5 @@
+GUI:
+-when "save all" is pressed and the user choose "Yes" but then cancel his choice, the molecule is not saved
+	and when the following window molecule is saved, a NullPointer is thrown.
+	It seems the path of the molecule was not correctly set...
+	Solution: redesign the save all and close all functions so that thet don't offer the cancel choice

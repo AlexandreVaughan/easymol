@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# This script runs easymol
+
+echo "Running EasyMol. Please wait ..."
+java -cp ./xml.jar:./xerces.jar:./easymol.jar fr.emn.easymol.main.EasyMol
