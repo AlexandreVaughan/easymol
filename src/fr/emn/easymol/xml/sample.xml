@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	A sample water molecule.
+-->
+<!DOCTYPE compound SYSTEM "molecule.dtd">
+<compound>
+<molecule name="H2O">
+	<atom name="H" bondid="h1" >
+		<bond id="O" valency="1" />
+	</atom>
+	<atom name="H" bondid="h2">
+		<bond id="O" valency="1" />
+	</atom>
+	<atom name="O" bondid="O">
+		<bond id="h1" valency="1" />
+		<bond id="h2" valency="1" />
+	</atom>
+</molecule>
+</compound>

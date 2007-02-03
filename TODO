@@ -1,0 +1,54 @@
+TODO List for EasyMol 1.0e (Gandalf)
+************************************
+
+GENERAL:
+- Document
+- Update project files
+- project website (for the future)
+- Update project to meet the requirements of the new JGraph library.
+
+GUI:
+- Finish rewriting GUI
+- Think of usability issues
+- add molecule subgroups support in the 2D pane
+- add magnetic grid for the 2D pane
+- refresh and lewis view button for the 2D pane
+
+CORE :
+- Document the new core
+- Check and test the wrapper for the old VSEPR algorithm
+- Support for more atom types
+
+ALGORITHMS :
+- Complete and Test 1D, 2D, 3D algorithms
+- important  : generate 2D view of a molecule from the model  (use a graph drawing algorithm)
+
+PERSISTENCE :
+- Implement XML Saving/Loading (Note : compounds and bonds optional properties should be saved also)
+- Database Saving/Loading (for the future)
+
+TEST :
+Add more tests for the core
+
+TODO : add 'save	EasyMolMainWindow.java	EasyMol/src/fr/emn/easymol/main	line 54	27 novembre 2004 21:45:58
+TODO : add 'save ?' dialog	CloseMoleculeAction.java	EasyMol/src/fr/emn/easymol/ui/actions	line 40	27 novembre 2004 21:39:35
+TODO : add 'save ?' dialog	EasyMolMainWindow.java	EasyMol/src/fr/emn/easymol/main	line 95	27 novembre 2004 21:45:58
+TODO : add more cases	TestCore.java	EasyMol/src/fr/emn/easymol/test	line 52	27 novembre 2004 21:39:34
+TODO : also add a new compound vector dynamically filled	SymbolicTranslatorAlgorithm.java	EasyMol/src/fr/emn/easymol/algorithms	line 32	27 novembre 2004 21:39:33
+TODO : and throw exception	SymbolicTranslatorAlgorithm.java	EasyMol/src/fr/emn/easymol/algorithms	line 47	27 novembre 2004 21:39:33
+TODO : Apparently this could cause an error in future versions of J3D	Molecule3DPane.java	EasyMol/src/fr/emn/easymol/ui/components	line 91	27 novembre 2004 21:57:55
+TODO : could also create inter group valency bonds for known groups	SymbolicTranslatorAlgorithm.java	EasyMol/src/fr/emn/easymol/algorithms	line 109	27 novembre 2004 21:39:33
+TODO : could create bonds on case by case for know groups (ex. CH2, COOH	SymbolicTranslatorAlgorithm.java	EasyMol/src/fr/emn/easymol/algorithms	line 107	27 novembre 2004 21:39:33
+TODO : create an 'edit molecule property' dialog and menu	EasyMolMainWindow.java	EasyMol/src/fr/emn/easymol/main	line 57	27 novembre 2004 21:45:58
+TODO : group/ungroup (method)	Molecule2DPane.java	EasyMol/src/fr/emn/easymol/ui/components	line 274	27 novembre 2004 21:57:01
+TODO : improve recursion level => CH3((CH2)(CH2))6COOH for example	SymbolicTranslatorAlgorithm.java	EasyMol/src/fr/emn/easymol/algorithms	line 112	27 novembre 2004 21:39:33
+TODO : improve test	TestCore.java	EasyMol/src/fr/emn/easymol/test	line 59	27 novembre 2004 21:39:34
+TODO : improve test	TestCore.java	EasyMol/src/fr/emn/easymol/test	line 76	27 novembre 2004 21:39:34
+TODO : improve token parsing => string tokens : Br12, for example	SymbolicTranslatorAlgorithm.java	EasyMol/src/fr/emn/easymol/algorithms	line 111	27 novembre 2004 21:39:33
+TODO : refresh	Molecule2DPane.java	EasyMol/src/fr/emn/easymol/ui/components	line 202	27 novembre 2004 21:57:00
+TODO : solution for all above : the interpreter pattern	SymbolicTranslatorAlgorithm.java	EasyMol/src/fr/emn/easymol/algorithms	line 113	27 novembre 2004 21:39:33
+TODO : test and re-document this class	Molecule3DPane.java	EasyMol/src/fr/emn/easymol/ui/components	line 49	27 novembre 2004 21:57:55
+TODO : write the real lewis view algorithm	LewisViewAlgorithm.java	EasyMol/src/fr/emn/easymol/algorithms	line 58	27 novembre 2004 21:39:33
+FIXME : modify data (copy the new compounds in data)	SymbolicTranslatorAlgorithm.java	EasyMol/src/fr/emn/easymol/algorithms	line 118	27 novembre 2004 21:39:33
+FIXME : modify data (copy the new compounds in data)	SymbolicTranslatorAlgorithm.java	EasyMol/src/fr/emn/easymol/algorithms	line 150	27 novembre 2004 21:39:33
+	

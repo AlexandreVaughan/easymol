@@ -1,0 +1,36 @@
+INSTALLATION INSTRUCTIONS FOR EASYMOL
+=====================================
+
+Compiling easymol : run compile.sh in the project dir -OR- use eclipse to import the project
+Running easymol   : run run.sh in the project dir
+
+NOTE: Please install java3D on your JDK/JVM before trying to compile or run easymol.
+
+
+Libraries used (or to be used) :
+JGraph (2D visualisation)
+Java3D (3D visualisation)
+Xerces (XML Saving/loading) choice to be discussed.
+MySQL Connector (Database saving loading using SQL) choice to be discussed. 
+
+The jars required (for netbeans, should compile with eclipse etc. too):
+j3daudio.jar
+j3dcore.jar
+j3dutils.jar
+vecmath.jar
+Above are the Java 3d libraries
+
+junit.jar (v. 3.8.1)
+
+jgraph.jar (NB: this file is included with the EasyMol itself, it is recommended use that jar file v. 5.5.1)
+more info about jgraph : http://jgraph.sourceforge.net/doc/
+
+resolver.jar
+xercesImpl.jar 
+xercesSamples.jar
+xml-apis.jar
+xmlParserAPIs.jar
+The Xerces jar files (all above 2.6.2)
+
+
+other libraries ?

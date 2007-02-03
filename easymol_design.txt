@@ -1,0 +1,102 @@
+EASYMOL DESIGN AND ARCHITECTURE
+
+1. The Core
+-----------
+
+The core (fr.emn.easymol.core) contains the data model of Easymol. The data model is built upon the 
+composite design pattern, like this :
+
+        AbstractChemicalCompound <-----
+          ^                ^          |
+          |                |       *  |
+        Atom            Molecule <>----
+
+The AbstractChemicalCompound is the base interface to define what is a chemical compound in easymol.
+An atom is a leaf chemical compound (it cannot have subcompounds) whereas a molecule maintains a list
+of chemical compounds which can be either molecules or atoms.
+
+The AbstractChemicalBond class is the base class to represent the link (bond) between two compounds.
+For the moment it is implemented only in the ValencyBond class. An AbstractChemicalBond is basically
+a pair of two compounds.
+
+2. The Algorithms
+-----------------
+
+The algorithms contained in the package fr.emn.easymol.algorithms all implement the interface 
+IAlgorithm (the strategy design pattern has been used here). 
+
+The LewisViewAlgorithm (not completed yet) translates the molecule data structure (as defined in core)
+into a molecular lewis view.
+
+The SymbolicTranslatorAlgorithm (also not completed) takes a molecule formula and tries to build
+a molecule data structure from it. It also generates the formula using the molecule data structure.
+
+The VSEPR algorithm transforms the molecule data structure into a Java3D branchgroup (molecule geometry)
+using the VSEPR algorithm. As this part uses old easymol code, the class VSEPRAlgorithm is only an
+adapter from the old code to the new one. It performs some data structure transaltion to sue the old
+algorithm which is located in fr.emn.easymol.algorithms.util.
+
+Grammar for a molecule formula :
+ <compound>        ::= 1*(<element> | '(' <compound> ')' [<number>])
+ <element>         ::= <atom> <number>
+ <atom>            ::= <uppercaseletter> [<lowercaseletter>]
+ <number>          ::= 1*<digit>
+ <digit>           ::= [0-9]    // not really BNF but i think it is clear enough
+ <uppercaseletter> ::= [A-Z]
+ <lowercaseletter> ::= [a-z]
+
+Examples :
+ C2H6O
+ (CH3)2CH2COOH
+ Br2
+
+3. The GUI
+----------
+
+The 2D GUI is based in the Swing library provided with the J2SE. The third party JGraph component is
+used for the 2D display of the molecule.
+
+The package fr.emn.easymol.main contains the EasyMolMainWindow class which is the window displayed at
+application startup. This windows uses tabs to emulate a MDI enironment (like in firefox). Every
+molecule is contained in a tab. Tabs are added/removed using the add/removeMoleculePane methods. The
+Molecule3DWindow is the window displayed when a molecule is rendered.
+
+All other subwindows used by EasyMol are in fr.emn.easymol.ui.components. These include :
+- IMoleculePane : base for all molecule views
+- Molecule2DPane : molecule 2D view
+- Molecule3DPane : molecule 3D view
+The 2D view of the molecule uses JGraph (see jgraph documentation for more details). Two 
+objects have been created to display molecule specific information on the graph :
+- ChemicalBondEdge (for bonds) and
+- ChemicalCompoundGraphCell (for compounds)
+The graph definition itself is contained in MoleculeGraph
+
+One important thing to notice is that all actions in EasyMol use the Swing action framework and are 
+all put in fr.emn.easymol.ui.actions. The action defines all  meta information concerning itself 
+(menu name, icon...) and can thus be added as an item a menu or toolbar. The actionPerformed method
+contains the actual code of the action. The currently implemented actions are :
+- NewMoleculeAction       : creates a new molecule and adds a tab in the main window
+- InsertAtomAction        : inserts a new atom in the molecule
+- InsertValencyBondAction : inserts a new valency bond in the molecule
+- RemoveAction            : removes an atom from the molecule
+- CloseMoleculeAction     : closes the tab for this molecule
+- Display3DViewAction     : displays the 3D view for this molecule
+
+The Molecule2DPaneMarqueeHandler is used to display a line while drawing a bond between two atoms in the graph.
+
+4. The Persistance, using XML
+-----------------------------
+
+Persistence is created via using Java SAX (in the future, transition to Xerces will be implemented). The 
+current implementation allows the XML-document to be directly transformed to a compound, as mentioned above.
+The structured document is transformed, element by element, to a molecule simply by parsing the document and 
+then collecting DOM-information of the document in to a DOM-tree. Then the values of the DOM-tree are used in
+creating the compound and its molecules.
+
+The classes needed are sorted in the priority of using them (so always use the first class):
+XMLtoMolecule - Handles the transformation of an XML-file to a molecule.
+MoleculetoXML - Vice versa from the above.
+MoleculeScanner - The "dummy" class for scanning an XML-file.
+MoleculeParser - The core class that handles the parsing of the XML-file.
+MoleculeHandler/MoleculeHandlerImpl - The Handler interface handles different types of elements and the 
+									  implementation class shows initial implementations for parsing.

@@ -1,0 +1,11 @@
+<!ELEMENT compound (molecule+)>
+<!ELEMENT molecule (#PCDATA|molecule|atom)*>
+<!ATTLIST molecule name CDATA #REQUIRED
+				   formula CDATA #IMPLIED>
+				  
+<!ELEMENT atom (#PCDATA|bond)*>
+<!ATTLIST atom name CDATA #REQUIRED
+			   bondid ID #IMPLIED>
+<!ELEMENT bond EMPTY>
+<!ATTLIST bond id IDREF #REQUIRED
+				  valency NMTOKENS #REQUIRED>

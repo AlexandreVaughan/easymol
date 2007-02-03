@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE compound SYSTEM "molecule.dtd">
+<compound>
+	<molecule name="C8H10N4O2">		
+		<atom name="C" bondid="c1">
+			<atom name="H" bondid="h1" />
+			<atom name="H" bondid="h2" />
+			<atom name="H" bondid="h3" />
+			<atom name="N" bondid="n1">				
+				<atom name="C" bondid="c2">
+					<atom name="C" bondid="c3">
+						<atom name="N" bondid="n2">
+							<atom name="C" bondid="c4">
+								<atom name="H" bondid="h4" />
+								<atom name="H" bondid="h5" />
+								<atom name="H" bondid="h6" />
+							</atom>
+							<atom name="C" bondid="c5">
+								<atom name="N" bondid="n3">
+									<atom name="C" bondid="c6">
+										<atom name="H" bondid="h7" />
+										<atom name="H" bondid="h8" />
+										<atom name="H" bondid="h9" />
+									</atom>
+									<atom name="C" bondid="c7">
+										<atom name="N" bondid="n4" />
+									</atom>
+							</atom>
+							
+							</atom>
+						</atom>
+					</atom>
+				</atom>
+			</atom>
+		</atom>
+		
+		<atom name="C" bondid="c8">
+			<atom name="H" bondid="h10" />
+		</atom>
+		<atom bondid="o1" name="O" />
+			
+		
+		<atom bondid="o2" name="O" />	
+		<bond to="o1" valency="2" from="c3"/>
+		<bond to="o2" valency="2" from="c5"/>
+		<bond to="n4" valency="2" from="c8"/>
+		<bond to="c2" valency="2" from="c7"/>
+		
+		
+	</molecule>
+</compound>

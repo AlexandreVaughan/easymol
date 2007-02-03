@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE compound SYSTEM "molecule.dtd">
+<compound>
+	<molecule name="N2H4">
+		<atom name="N" bondid="n1">
+			<atom name="N" bondid="n2">
+				<atom name="H" bondid="h1"/>
+				<atom name="H" bondid="h2"/>
+			</atom>
+			<atom name="H" bondid="h3" />	
+			<atom name="H" bondid="h4" />
+		</atom>
+	</molecule>
+	
+</compound>
