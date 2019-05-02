@@ -2,9 +2,6 @@
 Welcome to EasyMol
 ==================
 
-General Information
--------------------
-
 EasyMol is a program to design and visualise carbonic molecules in
 3D. The molecule is designed using its Lewis view and rendered in 3D
 using the VSEPR method.
@@ -20,9 +17,5 @@ User documentation has not been written yet, but will soon be.
 
 See the file AUTHORS for information about EasyMol authors.
 
-Bug Report
-----------
-
-Please report all bugs to the address : auteur@erusarden.fr.
 
 Have Fun !!
