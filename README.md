@@ -1,6 +1,6 @@
-                              ======================
-                              | WELCOME TO EASYMOL |
-                              ======================
+
+Welcome to EasyMol
+==================
 
 General Information
 -------------------
@@ -23,6 +23,6 @@ See the file AUTHORS for information about EasyMol authors.
 Bug Report
 ----------
 
-Please report all bugs to the address : avaughan@altern.org.
+Please report all bugs to the address : auteur@erusarden.fr.
 
 Have Fun !!
