@@ -34,9 +34,7 @@ import net.sf.easymol.ui.actions.LoadMoleculeAction;
 import net.sf.easymol.ui.actions.NewMoleculeAction;
 import net.sf.easymol.ui.actions.SaveMoleculeAction;
 import net.sf.easymol.ui.actions.SaveMoleculeAsAction;
-import net.sf.easymol.ui.actions.ShowBluetoothAction;
 import net.sf.easymol.ui.comp2d.Molecule2DPane;
-import net.sf.easymol.ui.comp2d.comm.bluetooth.BluetoothFrame;
 import net.sf.easymol.ui.general.IEasyMolPaneHolder;
 import net.sf.easymol.ui.general.IconProvider;
 
@@ -160,11 +158,7 @@ public class EasyMolMainWindow extends JFrame implements IEasyMolPaneHolder {
         getCurrentPane().setModified(false);
         setCurrentPaneName(getCurrentPane().getMolecule().getName());
     }
-    public void showBluetoothWindow(EasyMolMainWindow win)
-    {
-    	BluetoothFrame frame = new BluetoothFrame(win);
-    	frame.setVisible(true);
-    }
+
     public void exportHTMLCurrentPane(boolean askFileName)
     {
     	if (this.getCurrentPane().getMoleculeFileName().length() == 0
@@ -311,10 +305,7 @@ public class EasyMolMainWindow extends JFrame implements IEasyMolPaneHolder {
 
             }
         });
-        JMenu communications = new JMenu("Communications");
-        communications.setMnemonic(KeyEvent.VK_C);
-        menu.add(communications);
-        communications.add(new ShowBluetoothAction(this));
+
 
         view.add(new DisplayVSEPRAction(this));
         view.add(new Arrange2DViewAction(this));

@@ -21,7 +21,8 @@
  */
 package net.sf.easymol.core;
 
-import java.util.Hashtable;
+import java.util.HashMap;
+
 
 /**
  * The abstract description of a chemical bond in EasyMol.
@@ -45,7 +46,7 @@ public abstract class AbstractChemicalBond {
 
     // bond
 
-    private Hashtable properties = null; // properties of this bond
+    private HashMap<Integer,Object> properties = null; // properties of this bond
 
     /**
      * Constructs a new chemical bond
@@ -59,7 +60,7 @@ public abstract class AbstractChemicalBond {
             AbstractChemicalCompound second) {
         setFirst(first);
         setSecond(second);
-        properties = new Hashtable();
+        properties = new HashMap<Integer,Object>();
     }
 
     /**
@@ -93,7 +94,7 @@ public abstract class AbstractChemicalBond {
      *            the value of the property to set
      */
     public void setProperty(int property, Object value) {
-        properties.put(new Integer(property), value);
+        properties.put(property, value);
     }
 
     /**
@@ -104,7 +105,7 @@ public abstract class AbstractChemicalBond {
      * @return the value of the property
      */
     public Object getProperty(int property) {
-        return properties.get(new Integer(property));
+        return properties.get(property);
     }
 
     /**

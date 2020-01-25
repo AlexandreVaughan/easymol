@@ -78,7 +78,7 @@ public class NewMoleculetoXML {
 
         Element molecule = new Element("compound");
         root.setAttribute("name", mol.getName());
-        Enumeration compounds = mol.getCompounds();
+        var compounds = mol.getCompounds();
         int numCompounds = mol.getNbCompounds();
         molecule.setAttribute("id","0");
         // int i = 0;
@@ -90,9 +90,9 @@ public class NewMoleculetoXML {
                     .setUniqueId("" + (i2+1));
         }
         String symbolformainmol = new String();
-        while (compounds.hasMoreElements()) {
+        while (compounds.hasNext()) {
             Element atom = new Element("compound");
-            AbstractChemicalCompound a = ((AbstractChemicalCompound)compounds.nextElement());
+            AbstractChemicalCompound a = compounds.next();
             //maxlim = nbOccurenceOfSymbol(a.getSymbol(),mol);
             //a.setName(a.getSymbol()+((maxlim)-i++));
             symbolformainmol+=a.getSymbol();
@@ -102,11 +102,11 @@ public class NewMoleculetoXML {
             molecule.addContent(atom);
         }
         molecule.setAttribute("symbol",symbolformainmol);
-        Enumeration bonds = mol.getBonds();
+        var bonds = mol.getBonds();
         // int j = 1;
-        while (bonds.hasMoreElements()) {
+        while (bonds.hasNext()) {
             Element bond = new Element("bond");
-            AbstractChemicalBond vb = ((AbstractChemicalBond) bonds.nextElement());
+            AbstractChemicalBond vb = bonds.next();
             bond.setAttribute("from", ((AbstractChemicalCompound) vb.getFirst()).getUniqueId()
                     .toLowerCase());
             bond.setAttribute("to", ((AbstractChemicalCompound) vb.getSecond()).getUniqueId()
@@ -130,7 +130,7 @@ public class NewMoleculetoXML {
 
         Element molecule = new Element("compound");
         root.setAttribute("name", mol.getName());
-        Enumeration compounds = mol.getCompounds();
+        var compounds = mol.getCompounds();
         int numCompounds = mol.getNbCompounds();
         molecule.setAttribute("id","0");
         // int i = 0;
@@ -142,9 +142,9 @@ public class NewMoleculetoXML {
                     .setUniqueId("" + (i2+1));
         }
         String symbolformainmol = new String();
-        while (compounds.hasMoreElements()) {
+        while (compounds.hasNext()) {
             Element atom = new Element("compound");
-            AbstractChemicalCompound a = ((AbstractChemicalCompound)compounds.nextElement());
+            AbstractChemicalCompound a = compounds.next();
             //maxlim = nbOccurenceOfSymbol(a.getSymbol(),mol);
             //a.setName(a.getSymbol()+((maxlim)-i++));
             symbolformainmol+=a.getSymbol();
@@ -154,11 +154,11 @@ public class NewMoleculetoXML {
             molecule.addContent(atom);
         }
         molecule.setAttribute("symbol",symbolformainmol);
-        Enumeration bonds = mol.getBonds();
+        var bonds = mol.getBonds();
         // int j = 1;
-        while (bonds.hasMoreElements()) {
+        while (bonds.hasNext()) {
             Element bond = new Element("bond");
-            AbstractChemicalBond vb = ((AbstractChemicalBond) bonds.nextElement());
+            AbstractChemicalBond vb = bonds.next();
             bond.setAttribute("from", ((AbstractChemicalCompound) vb.getFirst()).getUniqueId()
                     .toLowerCase());
             bond.setAttribute("to", ((AbstractChemicalCompound) vb.getSecond()).getUniqueId()
@@ -175,10 +175,9 @@ public class NewMoleculetoXML {
 
     private int nbOccurenceOfSymbol(String symbol, AbstractChemicalCompound data) {
         int toReturn = 0;
-        for (Enumeration e = ((Molecule) data).getCompounds(); e
-                .hasMoreElements();) {
-            AbstractChemicalCompound acc = (AbstractChemicalCompound) e
-                    .nextElement();
+        for (var e = ((Molecule) data).getCompounds(); e
+                .hasNext();) {
+            AbstractChemicalCompound acc = e.next();
             if (acc.getSymbol().equals(symbol))
                 toReturn++;
         }

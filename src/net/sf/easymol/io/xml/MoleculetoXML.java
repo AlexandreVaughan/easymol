@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Iterator;
 
 import net.sf.easymol.core.AbstractChemicalBond;
 import net.sf.easymol.core.AbstractChemicalCompound;
@@ -81,7 +82,7 @@ public class MoleculetoXML {
 
         Element molecule = new Element("molecule");
         molecule.setAttribute("name", mol.getName());
-        Enumeration compounds = mol.getCompounds();
+        Iterator<AbstractChemicalCompound> compounds = mol.getCompounds();
         int numCompounds = mol.getNbCompounds();
         // int i = 0;
         int maxlim;
@@ -92,9 +93,9 @@ public class MoleculetoXML {
                     .setUniqueId(("" + (mol.getCompound(i2).getSymbol().charAt(0)) + ((maxlim) - (i2 + 1)))
                             .toLowerCase());
         }
-        while (compounds.hasMoreElements()) {
+        while (compounds.hasNext()) {
             Element atom = new Element("atom");
-            AbstractChemicalCompound a = ((AbstractChemicalCompound)compounds.nextElement());
+            AbstractChemicalCompound a = compounds.next();
             //maxlim = nbOccurenceOfSymbol(a.getSymbol(),mol);
             //a.setName(a.getSymbol()+((maxlim)-i++));
             atom.setAttribute("name", a.getSymbol());
@@ -102,11 +103,11 @@ public class MoleculetoXML {
             atom.setAttribute("bondid", a.getUniqueId().toLowerCase());
             molecule.addContent(atom);
         }
-        Enumeration bonds = mol.getBonds();
+        Iterator<AbstractChemicalBond> bonds = mol.getBonds();
         // int j = 1;
-        while (bonds.hasMoreElements()) {
+        while (bonds.hasNext()) {
             Element bond = new Element("bond");
-            AbstractChemicalBond vb = ((AbstractChemicalBond) bonds.nextElement());
+            AbstractChemicalBond vb = bonds.next();
             bond.setAttribute("from", ((AbstractChemicalCompound) vb.getFirst()).getUniqueId()
                     .toLowerCase());
             bond.setAttribute("to", ((AbstractChemicalCompound) vb.getSecond()).getUniqueId()
@@ -130,7 +131,7 @@ public class MoleculetoXML {
 
         Element molecule = new Element("molecule");
         molecule.setAttribute("name", mol.getName());
-        Enumeration compounds = mol.getCompounds();
+        var compounds = mol.getCompounds();
         int numCompounds = mol.getNbCompounds();
         // int i = 0;
         int maxlim;
@@ -141,9 +142,9 @@ public class MoleculetoXML {
                     .setUniqueId(("" + (mol.getCompound(i2).getSymbol().charAt(0)) + ((maxlim) - (i2 + 1)))
                             .toLowerCase());
         }
-        while (compounds.hasMoreElements()) {
+        while (compounds.hasNext()) {
             Element atom = new Element("atom");
-            AbstractChemicalCompound a = ((AbstractChemicalCompound) compounds.nextElement());
+            AbstractChemicalCompound a = compounds.next();
             //maxlim = nbOccurenceOfSymbol(a.getSymbol(),mol);
             //a.setName(a.getSymbol()+((maxlim)-i++));
             atom.setAttribute("name", a.getSymbol());
@@ -151,11 +152,11 @@ public class MoleculetoXML {
             atom.setAttribute("bondid", a.getUniqueId().toLowerCase());
             molecule.addContent(atom);
         }
-        Enumeration bonds = mol.getBonds();
+        var bonds = mol.getBonds();
         // int j = 1;
-        while (bonds.hasMoreElements()) {
+        while (bonds.hasNext()) {
             Element bond = new Element("bond");
-            AbstractChemicalBond vb = ((AbstractChemicalBond) bonds.nextElement());
+            AbstractChemicalBond vb = bonds.next();
             bond.setAttribute("from", ((AbstractChemicalCompound) vb.getFirst()).getUniqueId()
                     .toLowerCase());
             bond.setAttribute("to", ((AbstractChemicalCompound) vb.getSecond()).getUniqueId()
@@ -172,10 +173,10 @@ public class MoleculetoXML {
 
     private int nbOccurenceOfSymbol(String symbol, AbstractChemicalCompound data) {
         int toReturn = 0;
-        for (Enumeration e = ((Molecule) data).getCompounds(); e
-                .hasMoreElements();) {
-            AbstractChemicalCompound acc = (AbstractChemicalCompound) e
-                    .nextElement();
+
+        for (var e = ((Molecule) data).getCompounds(); e
+                .hasNext();) {
+            AbstractChemicalCompound acc = e.next();
             if (acc.getSymbol().equals(symbol))
                 toReturn++;
         }

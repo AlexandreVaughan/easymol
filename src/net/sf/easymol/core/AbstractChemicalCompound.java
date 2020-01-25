@@ -22,8 +22,8 @@
 package net.sf.easymol.core;
 
 import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.Vector;
+import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  * The abstract description of a chemical compound in EasyMol.
@@ -53,9 +53,9 @@ public abstract class AbstractChemicalCompound {
 
     private String symbol = ""; // symbol of this chemical compound
 
-    private Hashtable properties = new Hashtable(); // user defined properties
+    private final HashMap<Integer,Object> properties = new HashMap<>(); // user defined properties
 
-    private Vector observers = new Vector(); // of type
+    private final ArrayList<IChemicalCompoundObserver> observers = new ArrayList<>(); // of type
 
     // IChemicalCompoundObserver
 
@@ -76,7 +76,7 @@ public abstract class AbstractChemicalCompound {
      *            the value of the property to set
      */
     public void setProperty(int property, Object value) {
-        properties.put(new Integer(property), value);
+        properties.put(property, value);
     }
 
     /**
@@ -87,7 +87,7 @@ public abstract class AbstractChemicalCompound {
      * @return the value of the property
      */
     public Object getProperty(int property) {
-        return properties.get(new Integer(property));
+        return properties.get(property);
     }
 
     public String toString() {
@@ -164,10 +164,10 @@ public abstract class AbstractChemicalCompound {
      * 
      * @see IChemicalCompoundObserver
      */
-    public void notifyObservers() {
-        for (Enumeration e = observers.elements(); e.hasMoreElements();) {
-            ((IChemicalCompoundObserver) e.nextElement()).refresh();
-        }
+    public void notifyObservers() { 
+      for (IChemicalCompoundObserver obs : observers) { 		      
+           obs.refresh();
+      }
     }
 
     /**

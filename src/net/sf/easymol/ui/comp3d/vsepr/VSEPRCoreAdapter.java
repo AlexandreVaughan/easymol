@@ -5,7 +5,9 @@
 package net.sf.easymol.ui.comp3d.vsepr;
 
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Iterator;
 
 import javax.media.j3d.BranchGroup;
 
@@ -54,33 +56,31 @@ public class VSEPRCoreAdapter {
 
     public BranchGroup getMoleculeGeometry() {
         VSEPRMolecule om = new VSEPRMolecule(molecule.getName());
-        Hashtable map = new Hashtable();
-
-        if (!molecule.getCompounds().hasMoreElements())
+        HashMap<Integer,Integer> map = new HashMap<>(); 
+        Iterator<AbstractChemicalCompound> iterCompounds = molecule.getCompounds();
+        if (!iterCompounds.hasNext())
             return new BranchGroup();
 
         // Adding the atoms
         int index = -1;
         int oRoot = 0;
-        for (Enumeration e = molecule.getCompounds(); e.hasMoreElements();) {
-            AbstractChemicalCompound acc = (AbstractChemicalCompound) e
-                    .nextElement();
+        while (iterCompounds.hasNext()) {
+            AbstractChemicalCompound acc = iterCompounds.next();
             index++;
             int type = getOldType(acc.getSymbol());
             int oHash = om.addAtom(type);
             if (oRoot == 0 && type != VSEPRAtom.H)
                 oRoot = oHash;
-            map.put(new Integer(index), new Integer(oHash));
+            map.put(index, oHash);
         }
 
+        Iterator<AbstractChemicalBond> iterBonds = molecule.getBonds();
         // Adding the bonds
-        for (Enumeration e = molecule.getBonds(); e.hasMoreElements();) {
-            AbstractChemicalBond acb = (AbstractChemicalBond) e.nextElement();
+        while (iterBonds.hasNext()) {
+            AbstractChemicalBond acb = iterBonds.next();
             try {
-                int oHash1 = ((Integer) map.get(new Integer(molecule
-                        .getIndex(acb.getFirst())))).intValue();
-                int oHash2 = ((Integer) map.get(new Integer(molecule
-                        .getIndex(acb.getSecond())))).intValue();
+                int oHash1 = map.get(molecule.getIndex(acb.getFirst()));
+                int oHash2 = map.get(molecule.getIndex(acb.getSecond()));
                 int type = acb.getBondStrength();
                 om.addLink(oHash1, oHash2, type);
             } catch (Exception ex) {

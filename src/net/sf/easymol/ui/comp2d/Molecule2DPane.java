@@ -278,8 +278,8 @@ public class Molecule2DPane extends JPanel implements IMoleculePane,
         int currentY = 20;
         Vector rectangles = new Vector(); // of type Rectangle2D.Double;
         //AbstractChemicalCompound acc = null;
-        for (Enumeration e = molecule.getCompounds(); e.hasMoreElements();) {
-            e.nextElement();
+        for (var e = molecule.getCompounds(); e.hasNext();) {
+            e.next();
             rectangles.add(new Rectangle2D.Double(currentX, currentY,
                     COMPOUND_DEFAULT_WIDTH, COMPOUND_DEFAULT_HEIGHT));
             currentX += 30;
@@ -293,8 +293,8 @@ public class Molecule2DPane extends JPanel implements IMoleculePane,
         AbstractChemicalCompound currentCompound = null;
         Hashtable map = new Hashtable();
         int i = 0;
-        for (Enumeration e = molecule.getCompounds(); e.hasMoreElements();) {
-            currentCompound = (AbstractChemicalCompound) e.nextElement();
+        for (var e = molecule.getCompounds(); e.hasNext();) {
+            currentCompound = (AbstractChemicalCompound) e.next();
             ChemicalCompoundGraphCell cell = new ChemicalCompoundGraphCell(
                     currentCompound, currentCompound.getSymbol());
             Map cellAttrib = new Hashtable();
@@ -310,8 +310,8 @@ public class Molecule2DPane extends JPanel implements IMoleculePane,
             model.insert(insert, attributes, null, null, null);
             i++;
         }
-        for (Enumeration e = molecule.getBonds(); e.hasMoreElements();) {
-            AbstractChemicalBond acb = (AbstractChemicalBond) e.nextElement();
+        for (var e = molecule.getBonds(); e.hasNext();) {
+            AbstractChemicalBond acb = e.next();
             ChemicalCompoundGraphCell cell1 = (ChemicalCompoundGraphCell) map
                     .get(acb.getFirst());
             ChemicalCompoundGraphCell cell2 = (ChemicalCompoundGraphCell) map

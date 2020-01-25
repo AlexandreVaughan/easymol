@@ -5,9 +5,8 @@
  */
 package net.sf.easymol.core;
 
-import java.util.Enumeration;
-import java.util.NoSuchElementException;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * A class describing a molecule
@@ -17,10 +16,10 @@ import java.util.Vector;
  */
 public class Molecule extends AbstractChemicalCompound {
 
-    private Vector compounds = new Vector(); // of type AbstractChemicalCompound
+    private final ArrayList<AbstractChemicalCompound> compounds = new ArrayList<>(); // of type AbstractChemicalCompound
 
     // (composite pattern)
-    private Vector bonds = new Vector(); // of type AbstractChemicalBond
+    private final ArrayList<AbstractChemicalBond> bonds = new ArrayList<>(); // of type AbstractChemicalBond
 
     /**
      * Creates a new molecule
@@ -39,7 +38,6 @@ public class Molecule extends AbstractChemicalCompound {
      */
     public int addCompound(AbstractChemicalCompound acc) {
         compounds.add(acc);
-        //notifyObservers();
         return compounds.size() - 1;
     }
 
@@ -53,13 +51,12 @@ public class Molecule extends AbstractChemicalCompound {
         //AbstractChemicalCompound acc = (AbstractChemicalCompound)
         // compounds.elementAt(index);
         int currentIdx = 0;
-        for (Enumeration e = getBonds(); e.hasMoreElements();) {
-            AbstractChemicalBond jamesBond = (AbstractChemicalBond) e
-                    .nextElement();
+        for (AbstractChemicalBond jamesBond : bonds)
+        {
             if (jamesBond.getFirst().equals(acc)
                     || jamesBond.getSecond().equals(acc))
                 removeBond(currentIdx);
-            currentIdx++;
+            currentIdx++;  
         }
         compounds.remove(acc);
         notifyObservers();
@@ -72,8 +69,7 @@ public class Molecule extends AbstractChemicalCompound {
      *            The removed compounds index.
      */
     public void removeCompound(int index) {
-        AbstractChemicalCompound acc = (AbstractChemicalCompound) compounds
-                .elementAt(index);
+        AbstractChemicalCompound acc =  compounds.get(index);
         removeCompound(acc);
     }
 
@@ -92,6 +88,8 @@ public class Molecule extends AbstractChemicalCompound {
 
     /**
      * Removes an user specified bond.
+     * @param jamesBond
+     *            The bond to remove.
      */
     public void removeBond(AbstractChemicalBond jamesBond) {
         //AbstractChemicalBond jamesBond = (AbstractChemicalBond)
@@ -103,9 +101,10 @@ public class Molecule extends AbstractChemicalCompound {
 
     /**
      * Removes a bond from specified index.
+     * @param index index of the bond
      */
     public void removeBond(int index) {
-        removeBond((AbstractChemicalBond) bonds.elementAt(index));
+        removeBond(bonds.get(index));
     }
 
     /**
@@ -113,12 +112,8 @@ public class Molecule extends AbstractChemicalCompound {
      * 
      * @return An enumeration of the bonds on this molecule, if any.
      */
-    public Enumeration getBonds() {
-        try {
-            return bonds.elements();
-        } catch (NoSuchElementException nsee) {
-            return null;
-        }
+    public Iterator<AbstractChemicalBond> getBonds() {
+        return bonds.iterator();
     }
 
     /**
@@ -126,12 +121,8 @@ public class Molecule extends AbstractChemicalCompound {
      * 
      * @return An enumeration of the compounds, if any.
      */
-    public Enumeration getCompounds() {
-        try {
-            return compounds.elements();
-        } catch (NoSuchElementException nsee) {
-            return null;
-        }
+    public Iterator<AbstractChemicalCompound> getCompounds() {
+        return compounds.iterator();
     }
 
     /**
@@ -142,20 +133,23 @@ public class Molecule extends AbstractChemicalCompound {
      */
     public String toString() {
         String s = super.toString() + "\nSubcompounds :  [ ";
-        for (Enumeration e = getCompounds(); e.hasMoreElements();) {
-            AbstractChemicalCompound current = (AbstractChemicalCompound) e
-                    .nextElement();
+        Iterator<AbstractChemicalCompound> iterComp = getCompounds();
+        while(iterComp.hasNext())
+        {
+            AbstractChemicalCompound current =  iterComp.next();
             s += current.getSymbol();
-            if (e.hasMoreElements())
+            if (iterComp.hasNext())
                 s += ", ";
         }
+
         s += " ]\n";
         s += "Bonds : [ ";
-        for (Enumeration e = getBonds(); e.hasMoreElements();) {
-            AbstractChemicalBond current = (AbstractChemicalBond) e
-                    .nextElement();
+        Iterator<AbstractChemicalBond> iterBonds = getBonds();
+        while(iterBonds.hasNext())
+        {
+            AbstractChemicalBond current =  iterBonds.next();
             s += current.toString();
-            if (e.hasMoreElements())
+            if (iterComp.hasNext())
                 s += ", ";
         }
         s += " ]";
@@ -168,15 +162,20 @@ public class Molecule extends AbstractChemicalCompound {
      * @return A chemical compound.
      */
     public AbstractChemicalCompound getCompound(int index) {
-        return (AbstractChemicalCompound) compounds.elementAt(index);
+        return compounds.get(index);
     }
-    public AbstractChemicalCompound getLastCompound()
-    {
-    	return (AbstractChemicalCompound) compounds.lastElement(); 
+    public AbstractChemicalCompound getLastCompound() {
+        if (compounds.isEmpty()) {
+            return null;
+        }
+        
+    	return compounds.get(compounds.size()-1); 
     }
-    public AbstractChemicalCompound getFirstCompound()
-    {
-    	return (AbstractChemicalCompound) compounds.firstElement(); 
+    public AbstractChemicalCompound getFirstCompound() {
+        if (compounds.isEmpty()){
+            return null;
+        }
+    	return (AbstractChemicalCompound) compounds.get(0); 
     }
     /**
      * Gets the compound for a given name.
@@ -185,12 +184,10 @@ public class Molecule extends AbstractChemicalCompound {
      * @return The compound that has the given name
      */
     public AbstractChemicalCompound getCompoundByUniqueId(String uniqueId) {
-        Enumeration e = compounds.elements();
-        while (e.hasMoreElements()) {
-            AbstractChemicalCompound acc = (AbstractChemicalCompound) e
-                    .nextElement();
+        
+        for (AbstractChemicalCompound acc : compounds) {
             if ((acc.getUniqueId()).equals(uniqueId)) {
-                return acc;
+                return acc;  
             }
         }
         return null;
@@ -200,6 +197,7 @@ public class Molecule extends AbstractChemicalCompound {
     /**
      * Returns an index of an user specified compound
      * 
+     * @param acc compound
      * @return The index of the specified compound.
      */
     public int getIndex(AbstractChemicalCompound acc) {
@@ -227,8 +225,7 @@ public class Molecule extends AbstractChemicalCompound {
     }
 
     public boolean canBond() {
-        for (Enumeration e = getCompounds(); e.hasMoreElements();) {
-            AbstractChemicalCompound acc = (AbstractChemicalCompound) e.nextElement();
+        for (AbstractChemicalCompound acc: compounds) {
             if (acc.canBond())
                 return true;
         }
