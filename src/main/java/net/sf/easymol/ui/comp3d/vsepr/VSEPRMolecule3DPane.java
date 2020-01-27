@@ -25,6 +25,13 @@ package net.sf.easymol.ui.comp3d.vsepr;
 
 
 
+import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.PerspectiveCamera;
+import javafx.scene.SubScene;
+import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Translate;
 import net.sf.easymol.core.Molecule;
 import net.sf.easymol.ui.comp3d.IMolecule3DPane;
 import net.sf.easymol.ui.general.IMoleculePane;
@@ -45,7 +52,9 @@ import net.sf.easymol.ui.general.IMoleculePane;
  */
 public class VSEPRMolecule3DPane implements IMolecule3DPane, IMoleculePane {
 
+    private Group moleculeGeometry;
 
+    private Molecule moleculeData;
 
     /**
      * Creates a new 3D Navigation Window
@@ -54,7 +63,38 @@ public class VSEPRMolecule3DPane implements IMolecule3DPane, IMoleculePane {
      *            the molecule which will be used for navigation
      */
     public VSEPRMolecule3DPane(Molecule m) {
-
+        moleculeData = m;
+    }
+    
+    @Override
+    public Parent constructScene() {
+        init();
+        return moleculeGeometry;
+    }
+    
+    private void init() {
+        // Create and position camera
+        PerspectiveCamera camera = new PerspectiveCamera(true);
+        camera.getTransforms().addAll (
+                new Rotate(-20, Rotate.Y_AXIS),
+                new Rotate(-20, Rotate.X_AXIS),
+                new Translate(0, 0, -15));
+ 
+        // Build the Scene Graph
+        Group root = new Group();       
+        root.getChildren().add(camera);
+        VSEPRCoreAdapter adapter = new VSEPRCoreAdapter();
+        adapter.setMolecule(moleculeData);
+        Group moleculeVSEPR = adapter.getMoleculeGeometry();
+        root.getChildren().add(moleculeVSEPR);
+ 
+        // Use a SubScene       
+        SubScene subScene = new SubScene(root, 300,300);
+        subScene.setFill(Color.ALICEBLUE);
+        subScene.setCamera(camera);
+        Group group = new Group();
+        group.getChildren().add(subScene);
+        moleculeGeometry = group;
     }
 
     /**
@@ -62,7 +102,7 @@ public class VSEPRMolecule3DPane implements IMolecule3DPane, IMoleculePane {
      *  
      */
     public void refresh() {
-
+        //init();
     }
 
     /**
@@ -70,7 +110,7 @@ public class VSEPRMolecule3DPane implements IMolecule3DPane, IMoleculePane {
      */
     @Override
     public Molecule getMolecule() {
-        return null;
+        return moleculeData;
     }
 
     /**
@@ -79,7 +119,8 @@ public class VSEPRMolecule3DPane implements IMolecule3DPane, IMoleculePane {
      */
     @Override
     public void setMolecule(Molecule molecule) {
-
+       moleculeData = molecule;
+       
     }
 
 }

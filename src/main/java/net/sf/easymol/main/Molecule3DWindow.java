@@ -23,6 +23,7 @@ import javafx.scene.shape.DrawMode;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import javax.swing.JFrame;
+import net.sf.easymol.ui.comp3d.IMolecule3DPane;
 
 import net.sf.easymol.ui.comp3d.vsepr.VSEPRMolecule3DPane;
 
@@ -38,9 +39,12 @@ public class Molecule3DWindow extends JFrame {
     private static final long serialVersionUID = 1L;
     
     
+    IMolecule3DPane internalPane;
+    
 
     public Molecule3DWindow(VSEPRMolecule3DPane myPane) {
        final JFXPanel fxPanel = new JFXPanel();
+       internalPane = myPane;
        this.setSize(300, 300);
        add(fxPanel);
        
@@ -68,31 +72,9 @@ public class Molecule3DWindow extends JFrame {
     }
     
     public Parent createContent() {
- 
-        // Box
-        Box testBox = new Box(5, 5, 5);
-        testBox.setMaterial(new PhongMaterial(Color.RED));
-        testBox.setDrawMode(DrawMode.LINE);
- 
-        // Create and position camera
-        PerspectiveCamera camera = new PerspectiveCamera(true);
-        camera.getTransforms().addAll (
-                new Rotate(-20, Rotate.Y_AXIS),
-                new Rotate(-20, Rotate.X_AXIS),
-                new Translate(0, 0, -15));
- 
-        // Build the Scene Graph
-        Group root = new Group();       
-        root.getChildren().add(camera);
-        root.getChildren().add(testBox);
- 
-        // Use a SubScene       
-        SubScene subScene = new SubScene(root, 300,300);
-        subScene.setFill(Color.ALICEBLUE);
-        subScene.setCamera(camera);
-        Group group = new Group();
-        group.getChildren().add(subScene);
-        return group;
+
+        return internalPane.constructScene();
+
     }
     
     
