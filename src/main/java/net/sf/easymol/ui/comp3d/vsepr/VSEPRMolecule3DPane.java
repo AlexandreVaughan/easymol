@@ -78,7 +78,7 @@ public class VSEPRMolecule3DPane implements IMolecule3DPane, IMoleculePane {
         camera.getTransforms().addAll (
                 new Rotate(-20, Rotate.Y_AXIS),
                 new Rotate(-20, Rotate.X_AXIS),
-                new Translate(0, 0, -15));
+                new Translate(0, 0, -3));
  
         // Build the Scene Graph
         Group root = new Group();       

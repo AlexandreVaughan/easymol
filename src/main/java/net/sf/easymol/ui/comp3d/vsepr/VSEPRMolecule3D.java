@@ -251,19 +251,25 @@ public class VSEPRMolecule3D {
         Group object = new Group(); // The object which will be returned
         // We get the VSEPR angles for rotation
         VSEPRAngle3D theta = getVSEPR(parent, nbLinkedAtoms, linkPosition);
-        Rotate rotateX = new Rotate(theta.getAngleX(),Rotate.X_AXIS); // The X-axis rotation
-        Rotate rotateY = new Rotate(theta.getAngleY(),Rotate.Y_AXIS); // The Y-axis rotation
-        Rotate rotateZ = new Rotate(theta.getAngleZ() + Math.PI, Rotate.Z_AXIS); // The Z-axis rotation
+        Rotate rotateX = new Rotate(theta.getAngleX(VSEPRAngle3D.AngleUnit.DEGREES),Rotate.X_AXIS); // The X-axis rotation
+        Rotate rotateY = new Rotate(theta.getAngleY(VSEPRAngle3D.AngleUnit.DEGREES),Rotate.Y_AXIS); // The Y-axis rotation
+        Rotate rotateZ = new Rotate(theta.getAngleZ(VSEPRAngle3D.AngleUnit.DEGREES) + 180., Rotate.Z_AXIS); // The Z-axis rotation
         Translate translate = null; // The translation
+
         if (parent != null)
             translate = new Translate(0.3, 0.0, 0.0);
         
-        if (translate != null)
-            object.getTransforms().add(translate);
 
+        
         object.getTransforms().add(rotateX);
         object.getTransforms().add(rotateY);
         object.getTransforms().add(rotateZ);
+        
+        if (translate != null)
+           object.getTransforms().add(translate);
+
+        
+
 
         // VSEPRAtom Creation
         // -------------------

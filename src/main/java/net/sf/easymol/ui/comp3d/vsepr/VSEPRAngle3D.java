@@ -34,11 +34,17 @@ package net.sf.easymol.ui.comp3d.vsepr;
  * and <code>Math.PI/2</code>.
  */
 public class VSEPRAngle3D {
-    private double angleX; // the angle of rotation for the X axis
+    private final double angleX; // the angle of rotation for the X axis (stored in radians)
 
-    private double angleY; // the angle of rotation for the Y axis
+    private final double angleY; // the angle of rotation for the Y axis (stored in radians)
 
-    private double angleZ; // the angle of rotation for the Z axis
+    private final double angleZ; // the angle of rotation for the Z axis (stored in radians)
+    
+    public enum AngleUnit
+    {
+        DEGREES,
+        REDIANS,
+    }
 
     /**
      * Builds a new UAngle3D
@@ -60,31 +66,45 @@ public class VSEPRAngle3D {
     private double toRadian(double d) {
         return ((Math.PI * d) / 180.0d);
     }
+    
+    // Converts a double from radians to degrees
+    private double toDegrees(double d) {
+        return ((d*180.0) / Math.PI);
+    }
 
     /**
      * Gets the angle of rotation for X in radians
      * 
+     * @param unit desired unit of the angle
      * @return the angle of rotation
      */
-    public double getAngleX() {
+    public double getAngleX(AngleUnit unit) {
+        if (unit == AngleUnit.DEGREES)
+            return toDegrees(angleX);
         return angleX;
     }
 
     /**
      * Gets the angle of rotation for Y in radians
      * 
+     * @param unit desired unit of the angle
      * @return the angle of rotation
      */
-    public double getAngleY() {
+    public double getAngleY(AngleUnit unit) {
+        if (unit == AngleUnit.DEGREES)
+           return toDegrees(angleY);
         return angleY;
     }
 
     /**
      * Gets the angle of rotation for Z in radians
-     * 
+     *
+     * @param unit desired unit of the angle
      * @return the angle of rotation
      */
-    public double getAngleZ() {
+    public double getAngleZ(AngleUnit unit) {
+        if (unit == AngleUnit.DEGREES)
+           return toDegrees(angleZ);
         return angleZ;
     }
 }
