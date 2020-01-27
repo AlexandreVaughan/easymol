@@ -56,5 +56,7 @@ public class DisplayVSEPRAction extends AbstractAction {
         currentView.setVisible(true);
 
     }
+    
+
 
 }
